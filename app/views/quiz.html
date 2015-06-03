@@ -1,0 +1,72 @@
+<section class="quiz">
+  <header class="text-center">
+    <div class="logo-mobile">
+      <span class="icomoon icon--cn"></span>
+      <img src="/images/forceline_quiz.png" alt="Logo">
+      <hr class="medium-hr">
+      <h1 class="title-italic">Quiz</h1>
+    </div>
+  </header>
+  <article>
+    <div ng-show="questions.length>0" class="row">
+      <div class="large-12 columns">
+        <h1 class="title-italic text-center">How to improve Conversion Rate?</h1>
+        <p><span class="icon-arrow"></span> Please answer the {{questions.length}} questions below!</p>
+      </div>
+    </div>
+    <form name="myForm" ng-submit="submit($event)" ng-class="{'check-form': checkForm}">
+      <p ng-hide="questions.length>0 || alreadyPlayed" class="text-center">
+        <img src="images/AjaxLoader.gif" alt="Loading">
+      </p>
+      <!--div ng-show="questions.length==0 && alreadyPlayed" class="row text-center">
+        <div class="large-12 columns">
+          <h2>You already have played, try again next time!</h2>
+        </div>
+      </div-->
+      <div ng-if="questions.length>0">
+        <div class="row" ng-repeat="question in questions">
+          <div class="large-12 columns">
+            <h2><span class="question-number">{{$index+1}}.</span> {{question.question}}</h2>
+            <!--div ng-repeat="answer in question.answers" ng-click="radioClick($parent.$index, $index)">
+              <input type="radio" name="radio-group{{$parent.$index}}" id="answer{{$parent.$index}}{{$index}}" ng-value="{{answer}}" required>
+              <label for="answer{{$parent.$index}}{{$index}}">{{answer}}</label>
+            </div-->
+            <div class="radio">
+              <label for="myradio-a-{{$index}}" ng-class="{'checked': question.myanswer==1}">
+                <input type="radio" name="myradio-{{$index}}" ng-model="question.myanswer" id="myradio-a-{{$index}}" value="1" required>
+                {{question.answer1}}
+              </label>
+            </div>
+            <div class="radio">
+              <label for="myradio-b-{{$index}}" ng-class="{'checked': question.myanswer==2}">
+                <input type="radio" name="myradio-{{$index}}" ng-model="question.myanswer" id="myradio-b-{{$index}}" value="2" required>
+                {{question.answer2}}
+              </label>
+            </div>
+            <div class="radio">
+              <label for="myradio-c-{{$index}}" ng-class="{'checked': question.myanswer==3}">
+                <input type="radio" name="myradio-{{$index}}" ng-model="question.myanswer" id="myradio-c-{{$index}}" value="3" required>
+                {{question.answer3}}
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <input id="inputName" type="text" name="inputName" ng-model="field.name" required ng-trim="true" placeholder="Name" placeholder>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <button class="my-btn" type="submit">I'm done</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </article>
+</section>
+<div id="myModal" class="reveal-modal medium foundation-go show-error" data-reveal>
+  <h2>An error occured :(</h2>
+  <p class="lead">Please reload the page and try again.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

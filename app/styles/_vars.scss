@@ -1,0 +1,48 @@
+//colors
+$color-blue: #437ec1;
+$color-gold: #cdb56f;
+$color-gold2: #bca769;
+$color-white: #fff;
+$color-black: #000;
+$color-light-gray: #efefef;
+$color-light-gray2: #e8e8e8;
+$color-light-gray3: #c2c2c2;
+$color-medium-gray: #7d7d7d;
+$color-dark-gray: #282828;
+$color-dark-gray2: #252525;
+$color-dark-gray3: #2c2c2c;
+$color-dark-gray4: #202020;
+
+//fonts
+$font-en-body: 'GaramondPremrPro wp', 'Trade Gothic W01', 'Trade Gothic wf', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-en-italic: 'GaramondPremrPro wp', 'Trade Gothic W01', 'Trade Gothic wf', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-en-body: 'GaramondPremrPro wp', 'Trade Gothic W01', 'Trade Gothic wf', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-en-raleway: 'Raleway', 'Trade Gothic W01', 'Trade Gothic wf', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$base_font_size: 16px;
+
+
+//z-index
+$z-1: 1;
+$z-9: 9;
+$z-99: 99;
+$z-999: 999;
+$z-9999: 9999;
+
+
+//My mixins/fucntions
+
+@function my-trim-unit($val) {
+  @return $val / ($val * 0 + 1);
+}
+
+@function my-rem-calc($val) {
+  @return $val / my-trim-unit($base_font_size) * 1rem;
+}
+
+
+@mixin bg-hero() {
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  background-position: center;
+}
